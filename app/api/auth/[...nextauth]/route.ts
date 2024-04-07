@@ -45,6 +45,7 @@ export const authOptions: NextAuthOptions = {
           surname: user.surname,
           email: user.email,
           createdAt: user.createdAt,
+          description: user.description,
         };
       },
     }),
@@ -58,6 +59,7 @@ export const authOptions: NextAuthOptions = {
           id: user.id,
           surname: user.surname,
           createdAt: user.createdAt,
+          description: user.description,
         };
       }
       return token;
@@ -70,6 +72,7 @@ export const authOptions: NextAuthOptions = {
           id: token.id,
           surname: token.surname,
           createdAt: token.createdAt,
+          description: token.description,
         },
       };
     },

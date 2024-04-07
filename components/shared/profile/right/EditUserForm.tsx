@@ -7,7 +7,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { toast, useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 // schema
 const schema = z.object({
@@ -23,7 +23,10 @@ const schema = z.object({
     .string()
     .email({ message: "Zadaný e-mail není ve správném tvaru" })
     .optional(),
-  desc: z.string().optional(),
+  description: z
+    .string()
+    .max(35, { message: "Popis může být maximálně 35 znaků dlouhý" })
+    .optional(),
 });
 
 // types
@@ -31,6 +34,7 @@ type FormFields = z.infer<typeof schema>;
 
 const EditUserForm = () => {
   const session = useSession();
+
   const router = useRouter();
   const { toast } = useToast();
 
@@ -51,6 +55,8 @@ const EditUserForm = () => {
         surname: session.data.user.surname,
         // @ts-ignore
         email: session.data.user.email,
+        // @ts-ignore
+        description: session.data.user.description,
       });
     }
   }, [session]);
@@ -122,8 +128,8 @@ const EditUserForm = () => {
           )}
         </div>
         <div className="flex flex-col">
-          <label>Popis:</label>
-          <input type="text" {...register("desc")} />
+          <label>Popis (např. sportovec, novinář, redaktor,..):</label>
+          <input type="text" {...register("description")} />
           {/*{errors.desc && (*/}
           {/*  <div className="text-red-500">{errors.desc.message}</div>*/}
           {/*)}*/}

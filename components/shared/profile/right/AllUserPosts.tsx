@@ -4,7 +4,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 import PublishedButton from "@/components/shared/profile/right/PublishedButton";
-import DeleteButton from "@/components/shared/profile/right/DeleteButton";
+import DeleteButton from "@/components/shared/DeleteButton";
 
 async function GetPosts() {
   const session = await getServerSession(authOptions);

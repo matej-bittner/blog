@@ -1,6 +1,6 @@
 import React from "react";
 import { prisma } from "@/lib/prisma";
-import DeleteButton from "@/components/shared/profile/right/DeleteButton";
+import DeleteButton from "@/components/shared/DeleteButton";
 
 async function GetAllComments(articleId: any) {
   // const session = await getServerSession(authOptions);

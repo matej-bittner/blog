@@ -22,9 +22,9 @@ const ProfileLeft = async () => {
       <h1 className="text-2xl pt-2 sm:pt-6">
         {user.name + " " + user.surname}
       </h1>
-      <p className="text-xl font-light text-center">
-        sportovec, novinář, redaktor
-      </p>
+      {user.description && (
+        <p className="text-xl font-light text-center">{user.description}</p>
+      )}
       <p className="hidden sm:block text-xl font-light pt-8 pb-12">
         Člen od: <span className="font-normal">{formattedDate}</span>
       </p>

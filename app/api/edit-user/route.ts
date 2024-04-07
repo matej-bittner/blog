@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function PUT(request: any) {
   const editData = await request.json();
-  const { email, name, surname, userId } = editData;
+  const { email, name, surname, userId, description } = editData;
 
   if (!email || !name || !surname) {
     return new NextResponse("Vyplň všechna pole", { status: 400 });
@@ -14,6 +14,7 @@ export async function PUT(request: any) {
     data: {
       email,
       name,
+      description,
       surname,
     },
   });

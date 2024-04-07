@@ -55,7 +55,8 @@ const Post = async ({ params }: any) => {
           <span className="underline">
             {author.name + " " + author.surname}
           </span>
-          <br /> sportovec, novinář a redaktor
+          <br />
+          {author.description && `${author.description}`}
         </p>
       </div>
       <p>{article.content}</p>

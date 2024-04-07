@@ -22,7 +22,7 @@ const Navbar = async () => {
           <Link href="/">Kontakt</Link>
           <Link
             className="bg-main-green px-3 py-2 rounded-full text-white"
-            href="/"
+            href="?modal=follow"
           >
             Sledovat
           </Link>
